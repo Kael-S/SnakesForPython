@@ -7,7 +7,7 @@ from Helpers import *
 from Constants import *
 
 
-
+score=0
 # This is the head of the snake.
 # What type is it?!?!
 snakeHead = Rect(blockSize, blockSize, blockSize, blockSize)
@@ -77,9 +77,9 @@ while True:
 
     # Checks if the head collides with the wall.
     if(hasHitWall):
-        quitGame()
+        quitGame(score)
     if(hasHitBody):
-        quitGame()
+        quitGame(score)
 
     # We need to check if the head has collided with the body!
     # How can we do this?
@@ -89,6 +89,7 @@ while True:
 
     # Checks if the head collides with the apple.
     if (hasEaten):
+        score=score+1
         apple = randomRect()
         snakeBody.append(oldPiece)
 
