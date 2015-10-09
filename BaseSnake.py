@@ -6,7 +6,7 @@ from pygame.locals import *
 from Helpers import *
 from Constants import *
 
-
+numberOfLives=3
 score=0
 # This is the head of the snake.
 # What type is it?!?!
@@ -77,8 +77,10 @@ while True:
 
     # Checks if the head collides with the wall.
     if(hasHitWall):
-        quitGame(score)
+        numberOfLives=numberOfLives-1
     if(hasHitBody):
+        numberOfLives=numberOfLives-1
+    if numberOfLives==0:
         quitGame(score)
 
     # We need to check if the head has collided with the body!
@@ -86,8 +88,8 @@ while True:
     # (hint- it should be very similar to the line above!)
     # Go ahead and do it here!
 
-
     # Checks if the head collides with the apple.
+
     if (hasEaten):
         score=score+1
         apple = randomRect()
